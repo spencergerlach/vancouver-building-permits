@@ -7,6 +7,7 @@ import dash_bootstrap_components as dbc
 import altair as alt
 import pandas as pd
 import geopandas as gpd
+from altair_data_server import data_server
 
 alt.data_transformers.enable('data_server')
 

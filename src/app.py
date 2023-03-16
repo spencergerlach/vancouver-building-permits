@@ -39,6 +39,7 @@ paragraph = html.P([
 # ==== Start the thing ====
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
+server = app.server
 
 # ==== UI ====
 app.layout = dbc.Container([

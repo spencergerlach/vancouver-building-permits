@@ -1,13 +1,12 @@
-# Proposal
+# Proposal: Vancouver Building Permit Summary
 
 #### Authors
 - Spencer Gerlach
-- Alex Taciuk
-- Revathy Ponnambalam
-- Waiel Tinwala
+
+> Note: this proposal has been modified from the original Group 19 proposal.
 
 #### Date
-- First Draft: 2023-Feb-16
+- 2023-Mar-16
 
 ## Motivation and Purpose
 
@@ -15,13 +14,13 @@ Building permits are a source of valuable information about development in Vanco
 
 City of Vancouver staff make building permit data available via the Vancouver Open Data Portal, but the useful information held in the data is not easily accessible for people that lack technical skills or that are unfamiliar with the building permit system. The data is also mostly available at the "project level", with limited funcitonality to filter or aggregate by neighborhood and development type. The open data portal provides some elementary data exploration functionality, but this funcionality is limited. If a more nuanced analysis of the data is required, the user would need to download the data and analyze it themselves.
 
-> Our team hopes to make insights on Vancouver development more accessible to those who depend on them, but are unable to access them due to various technical or other accessiblity constrains.
+> I hope to make insights on Vancouver development more accessible to those who depend on them, but are unable to access them due to various technical or other accessiblity constrains.
 
-As such, our dashboard provides an accessible way to access and explore the data in an intuitive and simple way. 
+As such, this dashboard provides an accessible way to access and explore the data in an intuitive and simple way. 
 
 This tool could benefit citizens of Vancouver who wish to be informed of recent and current trends in development, organizations who wish to develop property in the city, or those advocating for social change.
 
-During development of the dashboard, our group will assume the role of a City of Vancouver department making a purpose-built tool to deliver these insights to our interested citizens and organizations. 
+During development of the dashboard, I will assume the role of a City of Vancouver department making a purpose-built tool to deliver these insights to our interested citizens and organizations. 
 
 ## Data Description
 
@@ -41,12 +40,16 @@ Ten of the 20 variables in the dataset are of interest:
 
 ## Target Personas and Usage Scenarios
 
-Our target audience is citizens and organizations that would like to be informed on recent development approvals across the city, and how development varies by neighborhood.
+My target audience is citizens and organizations that would like to be informed on recent development approvals across the city, and how development varies by neighborhood.
 
-#### Persona 1:
+#### User Persona:
 
-Arman is a Vancouverite passionate about the history of development approvals across the city. Arman wants to explore the trends in residential development value, type, and activity (number of planned developments). Ideally, he would be able to explore these trends at both an aggregated citywide level, but also to explore differences in these trends at the neighbourhood level. Our dashboard will give Arman a simple interface where he can toggle between those citywide and neighbourhood aggregation levels. Since Arman likes simple graphics and maps, he will be able to navigate to our interactive map of Vancouver neighbourhoods. Here, he will be able to see a chloropleth map outlining number of permits issued per neighbourhood; this might give him a quick idea of which neighbourhood are most active. Arman doesn’t stop there, since the map is interactive, he can click a neighbourhood to filter the dashboard statistics to present information specific to that selected neighbourhood. Say Arman lives in West Point Grey, he can then get an idea of the average time it takes to get a building permit approved, the average value of the development in the neighbourhood, and the specific breakdown of the development types (e.g. low density, high density, etc). With this information, Arman can make informed decisions about city leadership, and can become more involved in community discussions about current and planned development.
+Arman is a Vancouverite passionate about the history of development approvals across the city. Arman wants to explore the trends in residential development value, type, and activity (number of planned developments). Ideally, he would be able to explore these trends at both an aggregated citywide level, but also to explore differences in these trends at the neighbourhood level. My dashboard will give Arman a simple interface where he see a little bit of both citywide and neighbourhood level statistics. 
 
-#### Persona 2:
+- To get a quick comparison of which neighbourhoods take the longest to get permits approved, or have the highest project values, he can use the bar chart on the top left. This helps him understand which neighbourhoods are easier to get a permit approved in (shorter average approval times), or which neighbourhoods are experiencing the most investment (highest average project value).
 
-Varada volunteers in an organization advocating to build more affordable rental housing throughout the City. Permit data would be useful to help her volunteer organization argue their case. She is concerned that red tape in City Hall delays new rental housing, and wants to know how the details of building permits compare neighbourhood-to-neighbourhood. Wading through the City’s excel spreadsheets does not meet her needs, as she has few hours to meaningfully contribute to the volunteer project outside of her day job. Varada is specifically interested in the average time it takes to get a building permit approved based on the type of development. Her specific question is whether it takes medium or high density developments longer to get building permit approval than lower density. Using the citywide aggregation view of our dashboard, Varada is able to quickly filter the summary charts to show building permits for only low and high-density developments. She may find that it takes longer for high density buildings to get approval than low-density buildings; she can take these findings to her next meeting with a City Councillor to give her argument some credibility.
+- If Arman wants to explore the geospatial nuances between different building permit statistics, he can mouse over the chloropleth map on the right. This map allows Arman to choose his summary statistic of interest and view the results in the map below. He can choose between various statistics for permit approval times and project value, as well as permit counts. Arman is a visual learner, so this is helpful for him to get a sense of the statistics in a spatial manner.
+
+- For example, say Arman lives in West Point Grey, he can then get an idea of the average time it takes to get a building permit approved, or the average value of the development in the neighbourhood. With this information, Arman can make informed decisions about city leadership, and can become more involved in community discussions about current and planned development.
+
+- Finally, if Arman wanted to understand how building permits for high-density developments are trending, he could use the line chart to select various types of high-density development, and see if permit approval counts are increasing, decreasing, or staying constant over time.

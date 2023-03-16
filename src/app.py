@@ -14,72 +14,78 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # UI
 app.layout = html.Div([
-        html.H1("Vancouver Building Permits"),
-        html.Br(),
-        html.Label("X-axis:"),
-        dcc.Dropdown(
-            id='selected_x1',
-            options=[{'label': col, 'value': col} for col in ['PermitElapsedDays', 'ProjectValue']],
-            value='PermitElapsedDays'
-        ),
-        html.Br(),
-        html.Iframe(
-            id='bars',
-            style={'border-width': '0', 'width': '100%', 'height': '600px'}),
-        html.Br(),
-        dcc.Dropdown(
-            id='selected_use',
-            options=[{'label': col, 'value': col} for col in ['1FD on Sites w/ More Than One Principal Building', 
-                                                              '1FD w/ Family Suite', 
-                                                              '2FD on Sites w/ Mult Principal Bldg', 
-                                                              'Duplex', 
-                                                              'Duplex w/Secondary Suite', 
-                                                              'Freehold Rowhouse', 
-                                                              'Housekeeping Unit', 
-                                                              'Infill', 
-                                                              'Infill Multiple Dwelling', 
-                                                              'Infill Single Detached House', 
-                                                              'Infill Two-Family Dwelling', 
-                                                              'Laneway House', 
-                                                              'Micro Dwelling', 
-                                                              'Mixed', 
-                                                              'Multiple Conv Dwelling w/ Family Suite', 
-                                                              'Multiple Conv Dwelling w/ Sec Suite', 
-                                                              'Multiple Conversion Dwelling', 
-                                                              'Not Applicable', 
-                                                              'Principal Dwelling Unit w/Lock Off', 
-                                                              'Residential Unit Associated w/ an Artist Studio', 
-                                                              'Residential/Business Unit', 
-                                                              'Rooming House', 
-                                                              'Seniors Supportive/Assisted Housing', 
-                                                              'Single Detached House', 
-                                                              'Single Detached House w/Sec Suite', 
-                                                              'Sleeping Unit', 
-                                                              'Temporary Modular Housing', 
-                                                              'Dwelling Unit', 
-                                                              'Dwelling Unit w/ Other Use', 
-                                                              'Multiple Dwelling', 
-                                                              'Secondary Suite']],
-            value=['Duplex', 'Infill', 'Multiple Dwelling'],
-            multi=True
-        ),
-        html.Br(),
-        html.Iframe(
-            id='lines',
-            style={'border-width': '0', 'width': '100%', 'height': '600px'}),
-        html.Br(),
-        dcc.Dropdown(
-            id='selected_map',
-            options=[{'label': col, 'value': col} for col in ['elapsed_days_avg', 
-                                                              'project_value_avg',
-                                                              'count_permits']],
-            value='count_permits'
-        ),
-        html.Br(),
-        html.Iframe(
-            id='map',
-            style={'border-width': '0', 'width': '100%', 'height': '600px'}),
-        ])
+    html.H1("Vancouver Building Permits"),
+    html.Br(),
+    html.Div([
+        html.Div([
+            html.Label("X-axis Value:"),
+            dcc.Dropdown(
+                id='selected_x1',
+                options=[{'label': col, 'value': col} for col in ['PermitElapsedDays', 'ProjectValue']],
+                value='PermitElapsedDays',
+                style={'width':'50%'}
+            ),
+            html.Iframe(
+                id='bars',
+                style={'border-width': '0', 'width': '50%', 'height': '500px'})
+        ] ), #, className="six columns"
+        html.Div([
+            html.Label("Summary Statistic:"),
+            dcc.Dropdown(
+                id='selected_map',
+                options=[{'label': col, 'value': col} for col in ['elapsed_days_avg', 'project_value_avg', 'count_permits']],
+                value='count_permits',
+                style={'width': '50%'}
+            ),
+            html.Br(),
+            html.Iframe(
+                id='map',
+                style={'border-width': '0', 'width': '50%', 'height': '500px', 'padding-left':'50px'})
+        ] ) #, className="six columns"
+    ], className="row"),
+    dcc.Dropdown(
+        id='selected_use',
+        options=[{'label': col, 'value': col} for col in ['1FD on Sites w/ More Than One Principal Building', 
+                                                          '1FD w/ Family Suite', 
+                                                          '2FD on Sites w/ Mult Principal Bldg', 
+                                                          'Duplex', 
+                                                          'Duplex w/Secondary Suite', 
+                                                          'Freehold Rowhouse', 
+                                                          'Housekeeping Unit', 
+                                                          'Infill', 
+                                                          'Infill Multiple Dwelling', 
+                                                          'Infill Single Detached House', 
+                                                          'Infill Two-Family Dwelling', 
+                                                          'Laneway House', 
+                                                          'Micro Dwelling', 
+                                                          'Mixed', 
+                                                          'Multiple Conv Dwelling w/ Family Suite', 
+                                                          'Multiple Conv Dwelling w/ Sec Suite', 
+                                                          'Multiple Conversion Dwelling', 
+                                                          'Not Applicable', 
+                                                          'Principal Dwelling Unit w/Lock Off', 
+                                                          'Residential Unit Associated w/ an Artist Studio', 
+                                                          'Residential/Business Unit', 
+                                                          'Rooming House', 
+                                                          'Seniors Supportive/Assisted Housing', 
+                                                          'Single Detached House', 
+                                                          'Single Detached House w/Sec Suite', 
+                                                          'Sleeping Unit', 
+                                                          'Temporary Modular Housing', 
+                                                          'Dwelling Unit', 
+                                                          'Dwelling Unit w/ Other Use', 
+                                                          'Multiple Dwelling', 
+                                                          'Secondary Suite']],
+        value=['Duplex', 'Infill', 'Multiple Dwelling'],
+        multi=True
+    ),
+    html.Br(),
+    html.Iframe(
+        id='lines',
+        style={'border-width': '0', 'width': '100%', 'height': '600px'}),
+])
+
+
 
 # Server
 @app.callback(

@@ -10,6 +10,7 @@ import geopandas as gpd
 from altair_data_server import data_server
 
 alt.data_transformers.enable('data_server')
+alt.renderers.enable('mimetype')
 
 # ==== Housekeeping ====
 # Read csv data (for most visuals)

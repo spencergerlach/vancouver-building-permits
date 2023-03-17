@@ -13,11 +13,11 @@ alt.data_transformers.enable('data_server')
 
 # ==== Housekeeping ====
 # Read csv data (for most visuals)
-df = pd.read_csv('data/clean/permit_cleaned.csv', parse_dates=True)
+df = pd.read_csv('/data/clean/permit_cleaned.csv', parse_dates=True)
 df['YearMonth'] = pd.to_datetime(df['YearMonth'])
 
 # Read geojson data (neighbourhood polygons for chloropleth)
-gdf = gpd.read_file('data/clean/geo_nbhd_summary_long.geojson')
+gdf = gpd.read_file('/data/clean/geo_nbhd_summary_long.geojson')
 
 # ==== HTML stuff for the Information section ====
 # Define the hyperlink and bullet list contents

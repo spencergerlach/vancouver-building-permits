@@ -163,7 +163,7 @@ def plot_altair(x_axis, uses, map_stat):
                   title = "Neighbourhood"),
         tooltip=alt.Tooltip("mean(%s)" % (x_axis),
                             format = '~f')
-    ).interactive()
+    )#.interactive()
     
     # ==== Line Chart ====
     df_filtered = df.loc[df['SpecificUseCategory'].isin(uses)]
@@ -172,7 +172,7 @@ def plot_altair(x_axis, uses, map_stat):
         y = alt.Y("count()"),
         color = alt.Color("SpecificUseCategory"),
         tooltip=alt.Tooltip(["SpecificUseCategory", "count()"])
-    ).interactive()
+    )#.interactive()
 
     # ==== Chloropleth Map ====
     gdf_filtered = gdf.loc[gdf['stat'] == map_stat]

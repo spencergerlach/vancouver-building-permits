@@ -161,8 +161,8 @@ def plot_altair(x_axis, uses, map_stat):
         y = alt.Y("GeoLocalArea", 
                   sort = 'x', 
                   title = "Neighbourhood"),
-        tooltip=alt.Tooltip("mean(%s)" % (x_axis),
-                            format = '~f')
+        # tooltip=alt.Tooltip("mean(%s)" % (x_axis),
+        #                     format = '~f')
     )#.interactive()
     
     # ==== Line Chart ====
@@ -171,14 +171,14 @@ def plot_altair(x_axis, uses, map_stat):
         x = alt.X("YearMonth"),
         y = alt.Y("count()"),
         color = alt.Color("SpecificUseCategory"),
-        tooltip=alt.Tooltip(["SpecificUseCategory", "count()"])
+        # tooltip=alt.Tooltip(["SpecificUseCategory", "count()"])
     )#.interactive()
 
     # ==== Chloropleth Map ====
     gdf_filtered = gdf.loc[gdf['stat'] == map_stat]
     chart3 = alt.Chart(gdf_filtered, title = "Chloropleth Map of Vancouver Neighbourhoods").mark_geoshape(stroke="grey").encode(
         color = alt.Color("value"),
-        tooltip = ["name", "value"]
+        # tooltip = ["name", "value"]
     ).project(type="identity", reflectY=True)
 
     # ==== Forth Chart ====

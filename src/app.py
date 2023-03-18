@@ -7,10 +7,6 @@ import dash_bootstrap_components as dbc
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-# from altair_data_server import data_server
-
-# alt.data_transformers.enable('data_server')
-# alt.renderers.enable('mimetype')
 
 # ==== Housekeeping ====
 # Read csv data (for most visuals)
@@ -181,8 +177,6 @@ def plot_altair(x_axis, uses, map_stat):
         color = alt.Color("value"),
         tooltip = ["name", "value"]
     ).project(type="identity", reflectY=True)
-
-    # ==== Forth Chart ====
 
     return chart.to_html(), chart2.to_html(), chart3.to_html()
 

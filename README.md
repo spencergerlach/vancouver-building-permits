@@ -1,5 +1,7 @@
 # Vancouver Building Permit Explorer
 
+- Link to app: **https://vancouver-building-permits-ia.onrender.com**
+
 ## Proposal Document
 
 The proposal for this dashboard is a modified version of a proposal written for a group project dashboard (DSCI 532 Group 19). The updated proposal can be found [here](https://github.com/spencergerlach/vancouver-building-permits/blob/main/reports/proposal.md)
@@ -12,7 +14,7 @@ This dashboard uses the same data that the [original group project](https://gith
 
 ### Neighbourhood Bar Chart
 
-- Users are invited to use the dropdown menu to choose either Permit Elapsed Days (i.e. days for permit approval) or Project Value (i.e. construction value in CAD). Based on the selection, users will be able to see a comparison of mean values for each Vancouver neighbourhood.
+- Users are invited to use the dropdown menu to choose either Permit Elapsed Days (i.e. days elapsed before permit approved) or Project Value (i.e. construction value in CAD). Based on the selection, users will be able to see a comparison of mean values for each Vancouver neighbourhood.
 
 ### Neighbourhood Chloropleth Map
 
@@ -21,3 +23,15 @@ This dashboard uses the same data that the [original group project](https://gith
 ### Permit Count Line Chart
 
 - Finally, if users are interested in the trends of building permit approvals for specific building types, this chart will be helpful for them. Users can select one or multiple building types, and the chart below will show users how the count of permit approvals has changed over time.
+
+### More Information
+
+- Users can find links to more information about Vancouver's building permit process, or the building permit data.
+
+## Reference
+
+Data for this project was retrieved from the [Vancouver Open Data Portal](https://opendata.vancouver.ca/explore/dataset/issued-building-permits/information/)
+
+## License
+
+Licensed under the terms of the MIT License.

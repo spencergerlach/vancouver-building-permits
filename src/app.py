@@ -6,7 +6,7 @@ from dash import dash, html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 import altair as alt
 import pandas as pd
-import geopandas as gpd
+# import geopandas as gpd
 from altair_data_server import data_server
 
 alt.data_transformers.enable('data_server')
@@ -18,7 +18,7 @@ df = pd.read_csv('../data/clean/permit_cleaned.csv', parse_dates=True)
 df['YearMonth'] = pd.to_datetime(df['YearMonth'])
 
 # Read geojson data (neighbourhood polygons for chloropleth)
-gdf = gpd.read_file('../data/clean/geo_nbhd_summary_long.geojson')
+# gdf = gpd.read_file('../data/clean/geo_nbhd_summary_long.geojson')
 
 # ==== HTML stuff for the Information section ====
 # Define the hyperlink and bullet list contents

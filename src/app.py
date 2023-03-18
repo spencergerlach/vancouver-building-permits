@@ -9,12 +9,13 @@ import pandas as pd
 import geopandas as gpd
 from altair_data_server import data_server
 
-alt.data_transformers.enable('data_server')
-alt.renderers.enable('mimetype')
+# alt.data_transformers.enable('data_server')
+# alt.renderers.enable('mimetype')
 
 # ==== Housekeeping ====
 # Read csv data (for most visuals)
 df = pd.read_csv('../data/clean/permit_cleaned.csv', parse_dates=True)
+df = df.sample(frac=0.2)
 df['YearMonth'] = pd.to_datetime(df['YearMonth'])
 
 # Read geojson data (neighbourhood polygons for chloropleth)

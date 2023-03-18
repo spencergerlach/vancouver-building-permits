@@ -6,11 +6,11 @@ from dash import dash, html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 import altair as alt
 import pandas as pd
-# import geopandas as gpd
+import geopandas as gpd
 from altair_data_server import data_server
 
 alt.data_transformers.enable('data_server')
-# alt.renderers.enable('mimetype')
+alt.renderers.enable('mimetype')
 
 # ==== Housekeeping ====
 # Read csv data (for most visuals)
@@ -18,7 +18,7 @@ df = pd.read_csv('../data/clean/permit_cleaned.csv', parse_dates=True)
 df['YearMonth'] = pd.to_datetime(df['YearMonth'])
 
 # Read geojson data (neighbourhood polygons for chloropleth)
-# gdf = gpd.read_file('../data/clean/geo_nbhd_summary_long.geojson')
+gdf = gpd.read_file('../data/clean/geo_nbhd_summary_long.geojson')
 
 # ==== HTML stuff for the Information section ====
 # Define the hyperlink and bullet list contents
@@ -83,9 +83,9 @@ app.layout = dbc.Container([
                 value='count_permits',
                 style={'width': '100%'}
             ),
-            # html.Iframe(
-            #     id='map',
-            #     style={'border-width': '0', 'width': '100%', 'height': '550px', 'padding-left':'50px'})
+            html.Iframe(
+                id='map',
+                style={'border-width': '0', 'width': '100%', 'height': '550px', 'padding-left':'50px'})
         ], width=6)
     ]),
     
@@ -147,7 +147,7 @@ app.layout = dbc.Container([
 @app.callback(
     Output(component_id='bars', component_property='srcDoc'),
     Output(component_id='lines', component_property='srcDoc'),
-    # Output(component_id='map', component_property='srcDoc'),
+    Output(component_id='map', component_property='srcDoc'),
     Input(component_id='selected_x1', component_property='value'),
     Input(component_id='selected_use', component_property='value'),
     Input(component_id='selected_map', component_property='value')
@@ -174,16 +174,16 @@ def plot_altair(x_axis, uses, map_stat):
         tooltip=alt.Tooltip(["SpecificUseCategory", "count()"])
     ).interactive()
 
-    # # ==== Chloropleth Map ====
-    # gdf_filtered = gdf.loc[gdf['stat'] == map_stat]
-    # chart3 = alt.Chart(gdf_filtered, title = "Chloropleth Map of Vancouver Neighbourhoods").mark_geoshape(stroke="grey").encode(
-    #     color = alt.Color("value"),
-    #     tooltip = ["name", "value"]
-    # ).project(type="identity", reflectY=True)
+    # ==== Chloropleth Map ====
+    gdf_filtered = gdf.loc[gdf['stat'] == map_stat]
+    chart3 = alt.Chart(gdf_filtered, title = "Chloropleth Map of Vancouver Neighbourhoods").mark_geoshape(stroke="grey").encode(
+        color = alt.Color("value"),
+        tooltip = ["name", "value"]
+    ).project(type="identity", reflectY=True)
 
     # ==== Forth Chart ====
 
-    return chart.to_html(), chart2.to_html()#, chart3.to_html()
+    return chart.to_html(), chart2.to_html(), chart3.to_html()
 
 # ==== Run the bish ====
 if __name__ == '__main__':
